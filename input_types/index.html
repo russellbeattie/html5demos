@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Input Types</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+        <style type="text/css">
+            body {
+                font-family: sans-serif;
+                background: #eee;
+                margin-bottom: 400px;
+                text-align: center;
+            }
+            input{
+              display: block;
+              width: 400px;
+              border: 1px solid #ccc;
+              font-size: 1.4em;
+              padding: 2px;
+              margin: 5px;
+            }
+            input:required:invalid, input:focus:invalid {
+              background-image: url(invalid.png);
+              background-position: right top;
+              background-repeat: no-repeat;
+            }
+            input:required:valid {
+              background-image: url(valid.png);
+              background-position: right top;
+              background-repeat: no-repeat;
+            }
+            form{
+                text-align: left;
+                display: inline-block;
+                margin: 10px auto;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h1>Input Types</h1>
+        <form>
+            Date: <input type="date" value="2013-09-03" name="dateInput">
+            Datetime: <input type="datetime" name="datetimeInput">
+            Datetime-local: <input type="datetime-local" value="2013-09-03T20:00" name="datetime-local">
+            Email: <input type="email" name="emailInput">
+            Hidden: <input type="hidden" name="hiddenInput">
+            Month: <input type="month" value="2013-09" name="monthInput">
+            Number: <input type="number" name="numberInput">
+            Range: <input type="range" name="rangeInput">
+            Search: <input type="search" name="searchInput">
+            Tel: <input type="tel" name="telInput">
+            Time: <input type="time" name="timeInput">
+            Url: <input type="url" name="urlInput">
+            <hr>
+            Website: <input type="url" name="website" required pattern="https?://.+">
+        </form>
+        <p> </p>
+    </body>
+</html>
+
+
+
+</body>
+</html>

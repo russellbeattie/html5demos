@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Viewport</title>
+        <style>
+            body { font-family: sans-serif; margin: 0; padding: 0; background: #000;}
+            #overlay{
+                color: #fff;
+                font-size: 60pt;
+                text-align: center;
+                margin-top: 100px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <img src="bakerbeach.jpg">
+            <div id="overlay"></div>
+        </div>
+    <script>
+
+        var meta = document.createElement("meta");
+
+        meta.setAttribute('name','viewport');
+
+        var content = 'initial-scale=';
+           content += 1 / window.devicePixelRatio;
+           content += ',user-scalable=no';
+
+        meta.setAttribute('content', content);
+
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        document.getElementById('overlay').innerHTML = 'devicePixelRatio: ' + window.devicePixelRatio + '<br>innerWidth: ' + window.innerWidth + '<br>innerHeight: ' + window.innerHeight;
+
+    </script>
+    </body>
+</html>

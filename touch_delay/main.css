@@ -1,0 +1,26 @@
+html, body{
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-user-select: none;
+}
+
+#content{
+    text-align: center;
+    margin-top: 100px;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+
+#tapMe{
+    font-size: 1.1em;
+    line-height: 2;
+    border: 1px solid #ccc;
+    color: #fff;
+    width: 200px;
+    padding: 20px;
+    cursor: pointer;
+    margin: auto;
+}
+
+a {
+    color: #fff;
+}
