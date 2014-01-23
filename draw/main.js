@@ -43,6 +43,7 @@ function drawGradient(){
 function animate(time) {
 
     ctx.strokeStyle = color;
+    ctx.fillStyle = color;
     ctx.lineWidth = 5;
 
     if (points.length > 2) {
@@ -52,6 +53,9 @@ function animate(time) {
         ctx.quadraticCurveTo(points[1].x, points[1].y, points[2].x,points[2].y);
         //ctx.lineTo(points[1].x, points[1].y);
         ctx.stroke();
+        // ctx.beginPath();
+        // ctx.arc(points[0].x, points[0].y, 3, 0, 2 * Math.PI, false);
+        // ctx.fill();
 
         points.shift();
     }
