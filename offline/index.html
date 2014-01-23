@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html manifest="app.appcache">
+    <head>
+        <meta charset="UTF-8">
+        <title>Offline Test</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <style>
+            html, body { height: 100%; margin: 0; padding: 0; background: #000; color: #fff}
+            p, #log{
+                border: 1px solid #fff;
+                padding: 10px;
+                margin: 10px;
+            }
+        </style>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="content">
+            <p>
+                Cached Image: <img src="cached.png">
+            </p>
+            <p>
+                Not-cached Image: <img src="downloaded.png">
+            </p>
+            <p>
+                Javascript: <span id="js"></span>
+            </p>
+            <p>
+                CSS: <span id="css"></span>
+            </p>
+            <p>
+                Online Status: <span id="online-status"></span><br>
+                Cache Status: <span id="cache-status"></span><br>
+                <button id="check-cache">Check Cache</button>
+            </p>
+            <div id="log">
+
+            </div>
+        </div>
+        <script>
+
+        var appCache = window.applicationCache;
+        var statuses = ['UNCACHED', 'IDLE', 'CHECKING', 'DOWNLOADING', 'UPDATEREADY', 'OBSOLETE'];
+
+        var onlineStatus = document.getElementById('online-status');
+        var cacheStatus = document.getElementById('cache-status');
+        var log = document.getElementById('log');
+        var checkButton = document.getElementById('check-cache');
+
+        cacheStatus.innerHTML = statuses[appCache.status];
+
+        if(navigator.onLine){
+            onlineStatus.innerHTML = 'Online';
+        } else {
+            onlineStatus.innerHTML = 'Offline';
+        }
+
+        checkButton.addEventListener('click', function(e){
+                appCache.update();
+        });
+
+        if(appCache.status == 0){
+            checkButton.disabled = true;
+        }
+
+        window.applicationCache.addEventListener('updateready', function(e){
+            if (confirm('Update available. Reload?')) {
+                window.location.reload();
+            }
+        });
+
+        appCache.addEventListener('cached', logEvent, false);
+        appCache.addEventListener('checking', logEvent, false);
+        appCache.addEventListener('downloading', logEvent, false);
+        appCache.addEventListener('noupdate', logEvent, false);
+        appCache.addEventListener('obsolete', logEvent, false);
+        appCache.addEventListener('progress', logEvent, false);
+        appCache.addEventListener('updateready', logEvent, false);
+        appCache.addEventListener('error', logEvent, false);
+
+        function logEvent(e) {
+            log.innerHTML = log.innerHTML + '<br>' + e.type;
+            cacheStatus.innerHTML = statuses[appCache.status];
+        };
+
+
+
+        </script>
+        <script src="main.js"></script>
+    </body>
+</html>
