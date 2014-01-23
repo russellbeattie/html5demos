@@ -1,0 +1,46 @@
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+}
+
+body {
+	background-color: #000000;
+	margin: 0px;
+	padding: 0px;
+	cursor: crosshair;
+}
+#score{
+	position: absolute;
+	top: 15px;
+	left: 0px;
+	right: 0px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: monospace;
+	color: #ffffff;
+	z-index: 1;
+	opacity: .7;
+}
+#lives{
+	position: absolute;
+	top: 15px;
+	left: 10px;
+	font-size: 30px;
+	font-weight: bold;
+	font-family: monospace;
+	color: #ff0000;
+	z-index: 1;
+}
+.instructions{
+	font-size: 30px;
+	color: #eeeeee;
+}
+.callout{
+	color: #00FF00;
+}
+.loading{
+	padding-top: 100px;
+	color: #00FF00;
+}
+
